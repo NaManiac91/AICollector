@@ -1,4 +1,15 @@
-function createButton(index, bot, buttonColors) {
+export const buttonColors = [
+    'btn-primary',
+    'btn-secondary',
+    'btn-success',
+    'btn-danger',
+    'btn-warning',
+    'btn-info',
+    'btn-light',
+    'btn-dark'
+];
+
+function createButton(index, bot) {
     const node = document.createElement("button");
     node.type = "submit";
     node.className = "btn btn-lg ";
@@ -15,14 +26,13 @@ function createButton(index, bot, buttonColors) {
     return {node, a};
 }
 
-export function generateButtons(array, element, buttonColors) {
+export function generateButtons(array, element) {
     array.forEach((bot, index) => {
-        const {node, a} = createButton(index, bot, buttonColors);
+        const {node, a} = createButton(index, bot);
         a.appendChild(node);
         element.append(a)
     })
 }
-
 
 export function createSection(title) {
     const section = document.createElement('div');
